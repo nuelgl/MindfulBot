@@ -118,17 +118,21 @@ function getBotResponse(input) {
             "You're very welcome. I'm glad I could help. Is there anything else you'd like to discuss?";
     }
 
-    // 5. Identity: Name Detection
+    // 5. Identity: Name Detection (MOBILE OPTIMIZED)
     if (!userName) {
-        // Cleaning name input logic
-        const cleanForName = lowerInput.replace("iam ", "i am ").replace("im ", "i am ");
+        // This Regex replaces "i'm", "i’m" (curly), and "im" with "i am"
+        const mobileFriendlyInput = lowerInput.replace(/i['’]?m\s+/g, "i am ");
+        
         let nameMatch = "";
-        if (cleanForName.includes("my name is ")) nameMatch = cleanForName.split("my name is ")[1];
-        else if (cleanForName.includes("i am ")) nameMatch = cleanForName.split("i am ")[1];
+        if (mobileFriendlyInput.includes("my name is ")) {
+            nameMatch = mobileFriendlyInput.split("my name is ")[1];
+        } else if (mobileFriendlyInput.includes("i am ")) {
+            nameMatch = mobileFriendlyInput.split("i am ")[1];
+        }
 
         if (nameMatch) {
             userName = nameMatch.trim();
-            // Capitalize the first letter of each name
+            // Capitalize for professional display
             userName = userName.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
             return `Nice to meet you, ${userName}! How are you feeling today?`;
         }
