@@ -186,3 +186,22 @@ clearBtn.addEventListener("click", () => {
     addMessage("Chat cleared. Hello! I'm MindfulBot. What's your name?", "bot");
     userInput.focus();
 });
+// Help Modal Logic
+const helpBtn = document.getElementById("help-btn");
+const helpModal = document.getElementById("help-modal");
+const closeHelp = document.getElementById("close-help");
+
+helpBtn.addEventListener("click", () => {
+    helpModal.classList.remove("hidden");
+});
+
+closeHelp.addEventListener("click", () => {
+    helpModal.classList.add("hidden");
+});
+
+// Close modal if user clicks outside of the box
+window.addEventListener("click", (e) => {
+    if (e.target === helpModal) {
+        helpModal.classList.add("hidden");
+    }
+});
