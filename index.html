@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindfulBot | Final Year Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="landing-page" class="active-page">
+        <div class="landing-content">
+            <div class="logo-circle">MB</div>
+            <h1>MindfulBot</h1>
+            <p>Your AI-powered companion for emotional well-being and CBT-based support.</p>
+            <button id="start-chat-btn">Let's Chat</button>
+        </div>
+    </div>
+
+    <div id="chat-page" class="hidden">
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="header-main">
+                    <h2>MindfulBot</h2>
+                    <span>Empathetic AI Assistant</span>
+                </div>
+                <button id="clear-btn" title="Reset Conversation">Clear</button>
+            </div>
+
+            <div id="chat-box"></div>
+            
+            <div id="typing-indicator" class="hidden">MindfulBot is thinking...</div>
+
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Tell me how you're feeling..." autocomplete="off">
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
